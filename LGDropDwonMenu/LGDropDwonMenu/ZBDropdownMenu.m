@@ -100,6 +100,7 @@
     [_mainBtn addSubview:_arrowMark];
 }
 
+
 - (void)setMenuTitles:(NSArray *)titlesArr rowHeight:(CGFloat)rowHeight{
     
     if (self == nil) {

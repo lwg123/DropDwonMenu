@@ -10,6 +10,7 @@
 #import "ZBDropdownMenu.h"
 #import "Macro.h"
 #import "UIView+Frame.h"
+#import "SecondViewController.h"
 
 @interface ViewController ()<ZBDropdownMenuDelegate>
 {
@@ -28,6 +29,14 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor lightGrayColor];
     [self setupUI];
+    
+    // 下一页
+    UIButton *nextBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 70, 40)];
+    [nextBtn setTitle:@"下一页" forState:UIControlStateNormal];
+    [nextBtn addTarget:self action:@selector(nextPage) forControlEvents:UIControlEventTouchUpInside];
+    nextBtn.backgroundColor = [UIColor redColor];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:nextBtn];
+
 }
 
 
@@ -151,6 +160,9 @@
     return label.frame.size.width;
 }
 
-
+- (void)nextPage {
+    SecondViewController *vc = [[SecondViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end
